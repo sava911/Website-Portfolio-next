@@ -1,0 +1,127 @@
+.top-app {
+  margin-bottom: 40px;
+
+  &__title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    background: var(--dark);
+    color: var(--wh);
+
+    span {
+
+      color: var(--dark);
+    }
+
+    @keyframes ripple {
+      from {
+        opacity: 0.5;
+      }
+
+      to {
+        opacity: 0;
+        transform: scale(6);
+      }
+    }
+
+    .ripple {
+      position: relative;
+    }
+
+    .ripple,
+    .ripple::after {
+      background: var(--accent);
+      padding: 15px 10px;
+      border-radius: 10px;
+    }
+
+    .ripple::after {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      content: "";
+      z-index: -1;
+      animation: ripple 1s ease-out 0s infinite;
+    }
+
+
+  }
+
+  &__subtitle {
+    // text-align: center;
+    font-family: italic;
+    margin-bottom: 20px;
+    letter-spacing: 0.2rem;
+  }
+
+  &__items {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    // white-space: nowrap;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    counter-reset: num;
+
+    @extend %scroll-hidden;
+  }
+
+  &__item img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px;
+    height: 250px;
+    width: 100%;
+    filter: brightness(0.8);
+  }
+
+  &__item {
+    min-width: 200px;
+
+    margin-left: 50px;
+    position: relative;
+    background: var(--accent);
+    border-radius: 10px;
+
+
+    @extend %shed;
+
+
+
+    &::after {
+      counter-increment: num;
+      content: counter(num);
+
+      display: flex;
+      color: var(--dark);
+      font-weight: 600;
+
+      justify-content: center;
+
+      align-items: center;
+      position: absolute;
+      left: -30px;
+      top: 115px;
+      width: 60px;
+      height: 60px;
+      background: var(--num);
+      border-radius: 10px;
+      font-size: 32px;
+    }
+  }
+
+
+  &__text {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+
+  }
+
+  &__delimiter {}
+
+
+
+}

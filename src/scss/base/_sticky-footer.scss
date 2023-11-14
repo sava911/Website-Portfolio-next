@@ -1,0 +1,15 @@
+html,
+body {
+  min-height: 101vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.footer {
+  padding-bottom: 40px;
+  background-color: var(--dark);
+}
